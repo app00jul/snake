@@ -1,6 +1,7 @@
 import pygame
 from pygame.locals import *
 from game_elem import Snake
+from game_elem import Fruit
 
 class App:
     def __init__(self):
@@ -20,3 +21,4 @@ class App:
 
 if __name__ == "__main__":
     App().run()
+
