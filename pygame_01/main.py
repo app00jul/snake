@@ -1,22 +1,22 @@
 import pygame
+from pygame.locals import *
+from game_elem import Snake
 
-#Initialize the game
-pygame.init()
+class App:
+    def __init__(self):
+        pygame.init()
+        flags = RESIZABLE
+        App.screen = pygame.display.set_mode((1080,700),flags)
+        App.name = pygame.display.set_caption("Snake")
+        App.fps = pygame.time.Clock()
+        App.running = True
 
-#Start the screen
-screen = pygame.display.set_mode((800,600))
+    def run(self):
+        while App.running:
+            for event in pygame.event.get():
+                if event.type == QUIT:
+                    App.running = False
+        pygame.quit()
 
-#Title and Icon
-pygame.display.set_caption("YEEEEET!")
-icon = pygame.image.load("snake.png")
-pygame.display.set_icon(icon)
-
-#Close button
-running = True
-while running:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
-
-    screen.fill((255,255,255))
-    pygame.display.update()
+if __name__ == "__main__":
+    App().run()
